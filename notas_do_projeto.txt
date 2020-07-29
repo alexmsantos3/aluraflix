@@ -1,2 +1,9 @@
 // lib de componentes
 npm install styled-components
+
+// lib para virar trabalhar com single page, não ficar recaregando a pagina toda
+npm install react-router-dom
+
+// lib para fazer o carousel mais bonito
+npm install react-slick
+
