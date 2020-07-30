@@ -7,3 +7,5 @@ npm install react-router-dom
 // lib para fazer o carousel mais bonito
 npm install react-slick
 
+// padronizaçao de codigo e auxia nos erros (3 opcao é a melhor)
+npx eslint --init
