@@ -9,3 +9,7 @@ npm install react-slick
 
 // padronizaçao de codigo e auxia nos erros (3 opcao é a melhor)
 npx eslint --init
+// ajuda na prototipação
+npm install prop-types
+https://www.npmjs.com/package/prop-types
+
