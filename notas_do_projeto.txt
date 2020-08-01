@@ -1,3 +1,7 @@
+// iniciando
+npx create-react-app my-app
+https://pt-br.reactjs.org/docs/create-a-new-react-app.html
+
 // lib de componentes
 npm install styled-components
 
