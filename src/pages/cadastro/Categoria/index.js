@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
@@ -28,6 +28,7 @@ function CadastroCategoria() {
       infosDoEvento.target.value,
     );
   }
+
   // function handleChange(infosDoEvento) {
   //   const { getAttribute, value } = infosDoEvento.target;
   //   setValue(
@@ -35,6 +36,37 @@ function CadastroCategoria() {
   //     value
   //   );
   // }
+
+  useEffect(() => {
+    console.log('alo alo Brazil');
+    const URL_BACKEND = 'http://localhost:8080/categorias';
+
+    fetch(URL_BACKEND)
+      .then(async (respostaDoServidor) => {
+        const resposta = await respostaDoServidor.json();
+        setCategorias([
+          ...resposta,
+        ]);
+      });
+
+    // setTimeout(() => {
+    //   setCategorias([
+    //     ...categorias,
+    //     {
+    //       id: 1,
+    //       nome: 'Front End',
+    //       descricao: 'Uma categoria bacanudassa',
+    //       cor: '#6BD1FF',
+    //     },
+    //     {
+    //       id: 2,
+    //       nome: 'Back End',
+    //       descricao: 'Outra categoria bacanudassa',
+    //       cor: '#00C86F',
+    //     },
+    //   ]);
+    // }, 4 * 1000);
+  }, []);
 
   return (
     <PageDefault>
@@ -83,6 +115,13 @@ function CadastroCategoria() {
           Cadastrar
         </Button>
       </form>
+
+      {categorias.length === 0 && (
+        <div>
+          <br />
+          Loading...
+        </div>
+      )}
 
       <ul>
         {categorias.map((categoria) => (

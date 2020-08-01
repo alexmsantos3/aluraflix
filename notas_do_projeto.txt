@@ -13,3 +13,15 @@ npx eslint --init
 npm install prop-types
 https://www.npmjs.com/package/prop-types
 
+// back-end simulado, pronto em json-server
+npm install json-server
+https://github.com/typicode/json-server
+
+// eslin - problema de quebra de linha, lf crlf
+https://stackoverflow.com/questions/37826449/expected-linebreaks-to-be-lf-but-found-crlf-linebreak-style
+
+// Rodar mais de um comando que trava o terminal ao mesmo tempo
+npm install --save-dev concurrently
+https://www.npmjs.com/package/concurrently
+
+
