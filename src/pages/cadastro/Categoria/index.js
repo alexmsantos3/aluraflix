@@ -38,8 +38,11 @@ function CadastroCategoria() {
   // }
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.log('alo alo Brazil');
-    const URL_BACKEND = 'http://localhost:8080/categorias';
+    const URL_BACKEND = window.location.hostname.includes('localhost')
+      ? 'http://localhost:3000/categorias'
+      : 'https://alexflix.herokuapp.com/categorias';
 
     fetch(URL_BACKEND)
       .then(async (respostaDoServidor) => {
