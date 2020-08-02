@@ -36,8 +36,6 @@ function CadastroVideo() {
 
       <form onSubmit={(event) => {
         event.preventDefault();
-        // eslint-disable-next-line no-alert
-        // alert('Video Cadastrado com Sucesso!!!');
 
         const categoriaEscolhida = categorias.find((categoria) => {
           return categoria.titulo === values.categoria;
@@ -54,6 +52,8 @@ function CadastroVideo() {
           .then(() => {
             // eslint-disable-next-line no-console
             console.log('Cadastrou com sucesso!');
+            // eslint-disable-next-line no-alert
+            alert('Video Cadastrado com Sucesso!!!');
             history.push('/');
           });
       }}

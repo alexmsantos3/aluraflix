@@ -70,6 +70,10 @@ function CadastroCategoria() {
           values,
         ]);
 
+        // alert criado por mim.
+        // eslint-disable-next-line no-alert
+        alert('Categoria Cadastrada com Sucesso!!!');
+
         clearForm();
       }}
       >
