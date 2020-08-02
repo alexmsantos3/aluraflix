@@ -3,45 +3,27 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 function CadastroCategoria() {
   const valoresIniciais = {
     nome: '',
     descricao: '',
-    cor: '#000000',
+    cor: '',
   };
+
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
+
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
   // console.log('[nomeDaCategoria] = ', nomeDaCategoria);
 
-  function setValue(chave, valor) {
-    // chave: nome, descricao
-    setValues({
-      ...values,
-      [chave]: valor, // nome: 'valor'
-    });
-  }
-
-  function handleChange(infosDoEvento) {
-    setValue(
-      infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value,
-    );
-  }
-
-  // function handleChange(infosDoEvento) {
-  //   const { getAttribute, value } = infosDoEvento.target;
-  //   setValue(
-  //     getAttribute('name'),
-  //     value
-  //   );
-  // }
+  // ============
 
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.log('alo alo Brazil');
     const URL_BACKEND = window.location.hostname.includes('localhost')
-      ? 'http://localhost:3000/categorias'
+      ? 'http://localhost:8080/categorias'
       : 'https://alexflix.herokuapp.com/categorias';
 
     fetch(URL_BACKEND)
@@ -51,6 +33,8 @@ function CadastroCategoria() {
           ...resposta,
         ]);
       });
+    // eslint-disable-next-line no-console
+    console.log(URL_BACKEND);
 
     // setTimeout(() => {
     //   setCategorias([
@@ -86,13 +70,12 @@ function CadastroCategoria() {
           values,
         ]);
 
-        setValues(valoresIniciais);
+        clearForm();
       }}
       >
 
         <FormField
           label="Nome da Categoria"
-          type="text"
           name="nome"
           value={values.nome}
           onChange={handleChange}
@@ -128,8 +111,8 @@ function CadastroCategoria() {
 
       <ul>
         {categorias.map((categoria) => (
-          <li key={`${categoria.nome}`}>
-            {categoria.nome}
+          <li key={`${categoria.id}`}>
+            {categoria.titulo}
           </li>
         ))}
       </ul>

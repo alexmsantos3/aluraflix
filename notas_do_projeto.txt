@@ -28,4 +28,4 @@ https://stackoverflow.com/questions/37826449/expected-linebreaks-to-be-lf-but-fo
 npm install --save-dev concurrently
 https://www.npmjs.com/package/concurrently
 
-
+// Estudar o json-server para fazer as outras funções do projeto.
